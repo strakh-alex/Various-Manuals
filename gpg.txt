@@ -1,0 +1,17 @@
+gpg --gen-key # Generate new key
+/root/.gnupg  # Include keys
+gpg --export "Alexander Strakh" > /home/strakh/strakh.public
+gpg --import strakh.public # Import key on remote server
+
+gpg --list-keys 	# show all public keys
+gpg --list-secret-key	# show all keys with private
+
+gpg --out encrypted.file --recipient "Alexander Strakh" --encrypt file.file  # Encrypt file with key
+gpg --out encrypted.file --symmetric file.file # Encrypt file with password
+
+gpg --out encrypted.file --decrypt file.file # Decrypt file.
+
+
+# Enc and Dec mysql dump
+mysqldump mysql | gpg --out db.gpg --recipient "ENCRYPTION KEY NAME" --encrypt
+mysqldump mysql | gpg --recipient "ENCRYPTION KEY NAME" --encrypt | nice -n 20 gzip --fast > ${DUMPDIR}/${db}_`date +"%d-%m-%y-%H-%M-%S"`.sql.gz

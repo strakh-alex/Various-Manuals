@@ -1,0 +1,4 @@
+dism /online /cleanup-image /scanhealth
+dism /online /cleanup-image /restorehealth
+dism /online /Cleanup-Image /StartComponentCleanup /ResetBase
+dism /online /Cleanup-Image /SPSuperseded

