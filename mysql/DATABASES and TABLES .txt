@@ -1,0 +1,2 @@
+CREATE DATABESE dbname;
+CREATE TABLE tablename;

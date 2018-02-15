@@ -1,0 +1,8 @@
+docker image ls
+docker container run
+docker container ls -a
+docker container start <ID> # enough first numbers of ID
+docker contailer exec <ID> ls
+
+docker container diff <ID> # shows changes made in container
+

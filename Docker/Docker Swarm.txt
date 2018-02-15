@@ -1,0 +1,16 @@
+# NOTE: 3+ managers needed to build HA cluster
+# Create Swarm manager
+docker swarm init --advertise-addr $(hostname -i)
+
+# add worker
+docker swarm join --token SWMTKN-<TOKEN> <IP:PORT>
+
+#show swarm
+docker node ls
+
+docker stack deploy --compose-file=<COMPOSE_NAME> <stack name>
+docker stack ls # show stack and number of services
+docker stack services <STACK_NAME>
+
+# shows services
+docker service ps <STACK_SERVICE>

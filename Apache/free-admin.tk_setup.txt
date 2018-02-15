@@ -1,0 +1,17 @@
+mkdir /var/www/free-admin.tk
+chown -R $USER:$USE /var/www/free-admin.tk
+chmod 755 /var/www/free-admin.tk
+cd /etc/apache2/sites-available
+cp 000-default.conf free-admin.tk.conf
+cp default-ssl.conf free-admin.tk-ssl.conf
+# Edit the configs above
+# Enable ssl:
+a2enmod ssl 
+# Enable site:
+a2ensite free-admin.tk
+systemctl restart apache2
+echo "35.177.107.160 free-admin.tk" > /etc/hosts
+
+# Configured Let's Encrypt by this guide: https://certbot.eff.org/
+
+

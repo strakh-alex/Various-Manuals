@@ -1,0 +1,30 @@
+CREATE user 'username'@'%'; # add local user to db
+GRANT ALL PRIVILEGES dbname.tablename TO 'username'@'hostname' WITH GRANT OPTION;
+# OR to all table in the database
+GRANT ALL PRIVILEGES dbname.* TO 'username'@'hostname' WITH GRANT OPTION;
+# Note the use of two wildcards: * and %. These wildcards are used to replace values. In this example, * replaces the entire list of tables, and % replaces a list of all hosts in the known world—a very long list indeed.
+
+# The privileges you can grant are
+
+ALL        — Gives the user all of the following privileges
+ALTER      — User can alter (modify) tables, columns, and indexes
+CREATE     — User can create databases and tables
+DELETE     — User can delete records from tables
+DROP       — User can drop (delete) tables and databases
+FILE       — User can read and write files; this is used to import or dump data
+INDEX      — User can add or delete indexes
+INSERT 	   — User can add records to tables
+PROCESS    — User can view and stop system processes; only trusted users should be able to do this
+REFERENCES — Not currently used by MySQL, but a column for REFERENCES privileges exists in the user table
+RELOAD     — User can issue FLUSH statements; only trusted users should be able to do this
+SELECT     — User can select records from tables
+SHUTDOWN   — User can shut down the MySQL server; only trusted users should be able to do this
+UPDATE     — User can update (modify) records in tables
+USAGE      — User can connect to MySQL but has no privileges
+
+
+# Remove privilege:
+REVOKE ALL ON dbname.tablename FROM username;
+
+
+DONT forget to use FLUSH PRIVILEGES; !!!
